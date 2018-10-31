@@ -10,13 +10,10 @@ class Listener(tweepy.StreamListener):
         self.callback = callback
 
     def on_data(self, data):
-        print(type(data))
         response = {
             'type': 'data',
             'data': json.loads(data)
         }
-        # print(type(json.loads(data)))
-
         self.callback(response)
         return(True)
 

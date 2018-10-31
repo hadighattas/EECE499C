@@ -42,9 +42,9 @@ def processResponse(response):
     global count
     if response['type'] == 'data':
         count = count + 1
-        print(count)
         data = response['data']
         id = data['id']
+        print(count, 'Collected tweet with id:', id)
         db.put(str(id).encode(), bson.dumps(data))
     elif response['type'] == 'error':
         print(response['status'])
