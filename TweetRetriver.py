@@ -10,10 +10,11 @@ import json
 
 # Local imports
 from StreamListener import Listener
-from keys import *
+from keys2 import *
+from users import *
 
 # Connecting to database
-db = plyvel.DB('./tweets', create_if_missing=True)
+db = plyvel.DB('./proTweets', create_if_missing=True)
 
 # Importing Twitter API keys and instantiating API class
 
@@ -22,16 +23,6 @@ auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
 
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-# Defining keywords
-
-keywords = [
-    'Abrams',
-    'Kemp',
-    'Georgia Midterm',
-    'Georgia Elections',
-    'Republican Georgia',
-    'Democrat Georgia',
-]
 
 # Callback function for the listener
 
@@ -52,4 +43,4 @@ def processResponse(response):
 
 myStreamListener = Listener(processResponse)
 myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
-myStream.filter(track=keywords, is_async=True)
+myStream.filter(follow=PRO_USERS, is_async=True)
