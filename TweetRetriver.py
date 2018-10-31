@@ -32,13 +32,16 @@ count = 0
 def processResponse(response):
     global count
     if response['type'] == 'data':
-        count = count + 1
-        data = response['data']
-        id = data['id']
-        print(count, 'Collected tweet with id:', id)
-        db.put(str(id).encode(), bson.dumps(data))
+        try:
+            count = count + 1
+            data = response['data']
+            id = data['id']
+            print(count, 'Collected tweet with id:', id)
+            db.put(str(id).encode(), bson.dumps(data))
+        except Exception as e:
+            print('Error:', str(e))
     elif response['type'] == 'error':
-        print(response['status'])
+        print('Error from API:', response['status'])
 
 
 myStreamListener = Listener(processResponse)
