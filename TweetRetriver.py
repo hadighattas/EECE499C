@@ -51,7 +51,7 @@ def processResponse(response):
                 print(count, 'Collected pro tweet with id:',
                       tweetID, 'from user:', userID)
             elif retweetUserID in PRO_USERS:
-                proDB.put(str(tweetID).encode(), bson.dumps(data))
+                pro2DB.put(str(tweetID).encode(), bson.dumps(data))
                 print(count, 'Collected pro2 tweet with id:', tweetID,
                       'retweeted by:', retweetUserID, 'from user', userID)
             elif userID in ANTI_USERS:
