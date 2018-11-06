@@ -53,7 +53,7 @@ def processResponse(response):
             elif retweetUserID in PRO_USERS:
                 pro2DB.put(str(tweetID).encode(), bson.dumps(data))
                 print(count, 'Collected pro2 tweet with id:', tweetID,
-                      'retweeted by:', retweetUserID, 'from user', userID)
+                      'retweeted by:', userID, 'from user:', retweetUserID)
             elif userID in ANTI_USERS:
                 antiDB.put(str(tweetID).encode(), bson.dumps(data))
                 print(count, 'Collected anti tweet with id:',
@@ -61,7 +61,7 @@ def processResponse(response):
             elif retweetUserID in ANTI_USERS:
                 anti2DB.put(str(tweetID).encode(), bson.dumps(data))
                 print(count, 'Collected anti2 tweet with id:', tweetID,
-                      'retweeted by:', retweetUserID, 'from user', userID)
+                      'retweeted by:', userID, 'from user:', retweetUserID)
 
         except Exception as e:
             print('Error:', str(e))
