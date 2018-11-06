@@ -2,8 +2,14 @@ keys.py
 keys2.py
 users.py
 
-/tweets
-/proTweets
+tweets/
+proTweets/
+pro2Tweets/
+antiTweets/
+anti2Tweets/
+
+# Visual Studio Code 
+.vscode/
 
 # Github gitignore template
 
