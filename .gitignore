@@ -8,6 +8,8 @@ pro2Tweets/
 antiTweets/
 anti2Tweets/
 
+*.csv
+
 # Visual Studio Code 
 .vscode/
 
