@@ -17,8 +17,8 @@ start_time = time.time()
 G = nx.Graph()
 
 proDB = plyvel.DB('./proTweets')
-pro2DB = plyvel.DB('./pro2Tweets')
-# antiDB = plyvel.DB('./antiTweets')
+# pro2DB = plyvel.DB('./pro2Tweets')
+antiDB = plyvel.DB('./antiTweets')
 # anti2DB = plyvel.DB('./anti2Tweets')
 dbs = [proDB, antiDB]
 count = 0
